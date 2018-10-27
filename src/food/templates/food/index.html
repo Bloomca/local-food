@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  Hello! 222
+
+  <ul>
+    {% for country in countries %}
+      <li>
+        {{ country.name }}
+
+        {% for food in country.foods.all %}
+          {{ food.title }}
+        {% endfor %}
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
