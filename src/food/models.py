@@ -5,7 +5,7 @@ from django.db import models
 class Food(models.Model):
   title = models.CharField(max_length=200)
   original_name = models.CharField(max_length=200)
-  slug = models.CharField(max_length=64, db_index=True, default="")
+  slug = models.CharField(max_length=64, db_index=True, unique=True)
   description = models.TextField()
   vegeterian = models.BooleanField()
   vegan = models.BooleanField()
