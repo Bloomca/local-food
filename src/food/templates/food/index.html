@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  Hello! 222
+  Hello
 
   <ul>
     {% for country in countries %}
@@ -15,7 +15,9 @@
         {{ country.name }}
 
         {% for food in country.foods.all %}
-          {{ food.title }}
+          <a href="/food/{{ food.slug }}">
+            {{ food.title }}
+          </a>
         {% endfor %}
       </li>
     {% endfor %}
