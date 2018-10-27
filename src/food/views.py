@@ -20,5 +20,13 @@ def food(request, food_slug):
   context = {'food': food, 'countries_list': countries_list}
   return render(request, 'food/food.html', context=context)
 
+def country(request, country_code):
+  country = Country.objects.get(code=country_code)
+
+  print(country.foods.all())
+
+  context = {'country': country}
+  return render(request, 'food/country.html', context=context)
+
 
 

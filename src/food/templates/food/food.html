@@ -18,7 +18,7 @@
   <ul>
     {% for country, origin in countries_list %}
       <li>
-        <strong>{{ country.name }}:</strong> {{ origin.description }}
+        <strong><a href="/country/{{ country.code }}">{{ country.name }}</a>:</strong> {{ origin.description }}
       </li>
     {% endfor %}
   </ul>

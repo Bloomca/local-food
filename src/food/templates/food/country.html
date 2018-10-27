@@ -7,18 +7,15 @@
   <title>Document</title>
 </head>
 <body>
-  Hello
+  <a href="/">Home</a>
+  <h1>
+    Local food in {{ country.name }}
+  </h1>
 
   <ul>
-    {% for country in countries %}
+    {% for food in country.foods.all %}
       <li>
-        <a href="/country/{{ country.code }}">{{ country.name }}</a>
-
-        {% for food in country.foods.all %}
-          <a href="/food/{{ food.slug }}">
-            {{ food.title }}
-          </a>
-        {% endfor %}
+        <a href="/food/{{ food.slug }}">{{ food.title }}</a>
       </li>
     {% endfor %}
   </ul>
