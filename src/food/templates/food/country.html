@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <a href="/">Home</a>
-  <h1>
-    Local food in {{ country.name }}
-  </h1>
+{% extends 'food/base.html' %}
 
-  <ul>
-    {% for food in country.foods.all %}
-      <li>
-        <a href="/food/{{ food.slug }}">{{ food.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-</body>
-</html>
+{% block content %}
+<a href="/">Home</a>
+<h1>
+  Local food in {{ country.name }}
+</h1>
+
+<ul>
+  {% for food in country.foods.all %}
+    <li>
+      <a href="/food/{{ food.slug }}">{{ food.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
