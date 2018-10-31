@@ -3,9 +3,10 @@ from django.shortcuts import render
 from .models import Country, Food, Origin
 
 def index(request):
-  countries = Country.objects.all()
+  countries = Country.objects.all()[:4]
+  food_list = Food.objects.all()[:4]
 
-  context = {'countries': countries}
+  context = {'countries': countries, 'food_list': food_list}
   return render(request, 'food/index.html', context=context)
 
 def countries(request):
@@ -39,6 +40,9 @@ def country(request, country_code):
 
   context = {'country': country}
   return render(request, 'food/country.html', context=context)
+
+def about(request):
+  return render(request, 'food/about.html')
 
 
 

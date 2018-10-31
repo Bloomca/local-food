@@ -2,16 +2,13 @@
 
 {% block content %}
 <div class="main-bg">
-  <ul>
+  <ul class="lf-cards">
     {% for country in countries %}
-      <li>
-        <a href="/country/{{ country.code }}">{{ country.name }}</a>
-
-        {% for food in country.foods.all %}
-          <a href="/food/{{ food.slug }}">
-            {{ food.title }}
-          </a>
-        {% endfor %}
+      <li class="lf-card">
+        <a href="/country/{{ country.code }}">
+          <img class="lf-card-image" src="{{ country.image_url }}" />
+          {{ country.name }}
+        </a>
       </li>
     {% endfor %}
   </ul>

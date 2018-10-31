@@ -45,3 +45,26 @@ a {
   margin: 20px 0;
   font-size: 18px;
 }
+
+.lf-cards {
+  list-style: none;
+  text-align: center;
+}
+
+.lf-card {
+  display: inline-block;
+  width: 300px;
+  margin: 10px;
+}
+
+.lf-card-image {
+  width: 100%;
+}
+
+.lf-separator {
+  width: 50%;
+  height: 1px;
+  background: #ccc;
+  min-width: 250px;
+  margin: 30px auto;
+}
