@@ -1,0 +1,47 @@
+body {
+  font-family: 'Lora', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'PT Sans Caption', sans;
+}
+
+a {
+  text-decoration: none;
+}
+
+.lf-container {
+  position: relative;
+  background-image: url("./bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.lf-main-bg {
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.lf-content {
+  position: relative;
+  color: #fff;
+  padding: 20px 25px 50px;
+  max-width: 1000px;
+  margin: 0 auto 30px;
+}
+
+.lf-content h1 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.lf-content p {
+  line-height: 1.584;
+  margin: 20px 0;
+  font-size: 18px;
+}

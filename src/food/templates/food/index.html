@@ -1,19 +1,41 @@
 {% extends 'food/base.html' %}
 
 {% block content %}
-Hello
+<div class="lf-container">
+  <div class="lf-main-bg"></div>
 
-  <ul>
-    {% for country in countries %}
-      <li>
-        <a href="/country/{{ country.code }}">{{ country.name }}</a>
+  <div class="lf-content">
+    <h1>
+      Local Food
+    </h1>
+    <p>
+      Have you ever wondered what region-specific food exists in the world? We all know about famous french wine, or parmesan cheese, but what about smaller things? Well, the general advice is to go to local restaurants, and try dishes there. This is indeed good advice, but it is about dishes, not about products!
+    </p>
+    <p>
+    So this website tells mostly about regular places – supermarkets. Why do we need such a website, though? Why can't you just go to the closest grocery store and pick up things you've never seen before?
+    </p>
+    <p>
+    There are couple problems with that. First of all, thanks to globalization, all supermarkets looks similar – you can find pasta nearly everywhere, as well as breakfast options. So a lot of stuff will resemble what you already know, but here is the problem – you might not know the language good enough to understand whether it is a regular one, or something special (and trust me, titles of local food is the last thing you learn in a foreign language).
+    </p>
+    <p>
+      So, while going to supermarkets without any plan is a good idea (you probably will find something interesting anyway), but knowing what are you looking for is much more interesting activity – you'll hunt for specialties!
+    </p>
+    <p>
+    Some of the provided items can be available in restaurants or bars (especially drinks), and some might be hard to get in regular grocery stores. However, the main focus is still on the food which local people buy in shops.
+    </p>
+  </div>
+</div>
+<ul>
+  {% for country in countries %}
+    <li>
+      <a href="/country/{{ country.code }}">{{ country.name }}</a>
 
-        {% for food in country.foods.all %}
-          <a href="/food/{{ food.slug }}">
-            {{ food.title }}
-          </a>
-        {% endfor %}
-      </li>
-    {% endfor %}
-  </ul>
+      {% for food in country.foods.all %}
+        <a href="/food/{{ food.slug }}">
+          {{ food.title }}
+        </a>
+      {% endfor %}
+    </li>
+  {% endfor %}
+</ul>
 {% endblock %}

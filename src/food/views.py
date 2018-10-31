@@ -8,6 +8,18 @@ def index(request):
   context = {'countries': countries}
   return render(request, 'food/index.html', context=context)
 
+def countries(request):
+  countries = Country.objects.all()
+
+  context = {'countries': countries}
+  return render(request, 'food/countries.html', context=context)
+
+def food_list(request):
+  food_list = Food.objects.all()
+
+  context = {'food_list': food_list}
+  return render(request, 'food/food_list.html', context=context)
+
 def food(request, food_slug):
   food = Food.objects.get(slug=food_slug)
   countries_list = []
