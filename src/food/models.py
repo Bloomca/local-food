@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import URLValidator
 
 # Create your models here.
 
@@ -12,6 +13,7 @@ class Food(models.Model):
   pastry = models.BooleanField(default=False)
   beverage = models.BooleanField(default=False)
   alcoholic = models.BooleanField(default=False)
+  image_url = models.CharField(max_length=300, validators=[URLValidator()], blank=True)
 
   def __str__(self):
     return self.title + '/' + self.original_name
@@ -20,6 +22,7 @@ class Country(models.Model):
   code = models.CharField(max_length=2)
   name = models.CharField(max_length=200)
   foods = models.ManyToManyField(Food, through='Origin')
+  image_url = models.CharField(max_length=300, validators=[URLValidator()], blank=True)
 
   def __str__(self):
     return self.name
