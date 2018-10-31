@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.db.models.aggregates import Count
+from random import randint
+from django.shortcuts import redirect
 
 from .models import Country, Food, Origin
 
@@ -43,6 +46,14 @@ def country(request, country_code):
 
 def about(request):
   return render(request, 'food/about.html')
+
+def lucky(request):
+  count = Food.objects.count()
+  random_index = randint(0, count - 1)
+  selected_food = Food.objects.all()[random_index]
+
+  return redirect("/food/" + selected_food.slug)
+
 
 
 

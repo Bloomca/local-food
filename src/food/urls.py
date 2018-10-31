@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import index, food, country, countries, food_list, about
+from .views import index, food, country, countries, food_list, about, lucky
 
 urlpatterns = [
     path('', index),
@@ -8,5 +8,6 @@ urlpatterns = [
     path('country/<country_code>', country),
     path('food', food_list),
     path('countries', countries),
-    path('about', about)
+    path('about', about),
+    path('lucky', lucky)
 ]
