@@ -1,0 +1,26 @@
+{% extends 'food/base.html' %}
+
+{% block content %}
+<div class="main-bg">
+  <ul class="lf-cards">
+    {% if food_list %}
+      <h1>
+        Food for {{ search }}:
+      </h1>
+      {% for food in food_list %}
+        <li class="lf-card">
+          <a href="/food/{{ food.slug }}">
+            <img src="{{ food.image_url }}" class="lf-card-image" />
+            {{ food }}
+          </a>
+        </li>
+      {% endfor %}
+    {% else %}
+        <h1>
+          Nothing was found.
+        </h1>
+      <a href="/food">Look at all food</a> or go the <a href="/">main page</a>.
+    {% endif %}
+  </ul>
+</div>
+{% endblock %}
