@@ -1,15 +1,17 @@
 {% extends 'food/base.html' %}
 
 {% block content %}
-<a href="/">Home</a>
-<h1>
+<h1 class="text-center mt-8 mb-8">
   Local food in {{ country.name }}
 </h1>
 
-<ul>
+<ul class="lf-cards">
   {% for food in country.foods.all %}
-    <li>
-      <a href="/food/{{ food.slug }}">{{ food.title }}</a>
+    <li class="lf-card">
+      <a href="/food/{{ food.slug }}">
+        <img src="{{ food.image_url }}" class="lf-card-image" />
+        {{ food }}
+      </a>
     </li>
   {% endfor %}
 </ul>
