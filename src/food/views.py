@@ -73,6 +73,13 @@ def lucky(request):
 
   return redirect("/food/" + selected_food.slug)
 
+def categories(request):
+  vegeterian = Food.objects.filter(vegeterian=True).exclude(vegan=True).all()
+  vegan = Food.objects.filter(vegan=True).all()
+  beverages = Food.objects.filter(beverage=True).all()
+  context = {'vegeterian': vegeterian, 'vegan': vegan, 'beverages': beverages}
+  return render(request, 'food/categories.html', context=context)
+
 
 
 

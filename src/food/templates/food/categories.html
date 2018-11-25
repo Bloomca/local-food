@@ -1,0 +1,33 @@
+{% extends 'food/base.html' %}
+
+{% block content %}
+<h1>
+  Categories
+</h1>
+<h2 class="text-center mb-4">
+  Vegeterian food
+</h2>
+<ul class="lf-cards">
+  {% for food in vegeterian %}
+    <li class="lf-card">
+      <a href="/food/{{ food.slug }}">
+        <img src="{{ food.image_url }}" class="lf-card-image" />
+        {{ food }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+<h2 class="text-center mb-4">
+  Beverages
+</h2>
+<ul class="lf-cards">
+  {% for food in beverages %}
+    <li class="lf-card">
+      <a href="/food/{{ food.slug }}">
+        <img src="{{ food.image_url }}" class="lf-card-image" />
+        {{ food }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
