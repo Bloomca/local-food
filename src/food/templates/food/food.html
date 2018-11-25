@@ -5,19 +5,24 @@
 {% endblock %}
 
 {% block content %}
-<a href="/">Home</a>
-<h1>{{ food.title }} / {{ food.original_name }}</h1>
+<div class="lf-food-container">
+  <h1 class="lf-food-title">{{ food.title }} / {{ food.original_name }}</h1>
 
-<p>
-  {{ food.description }}
-</p>
-
-You can find this product in:
-<ul>
-  {% for country, origin in countries_list %}
-    <li>
-      <strong><a href="/country/{{ country.code }}">{{ country.name }}</a>:</strong> {{ origin.description }}
-    </li>
-  {% endfor %}
-</ul>
+  <img class="lf-food-image" src="{{ food.image_url }}" alt="Image of {{ food.title }}/{{ food.original_name }}" />
+  
+  <p class="lf-food-description">
+    {{ food.description }}
+  </p>
+  
+  <h3 class="lf-food-countries">
+    You can find this product in:
+  </h3>
+  <ul>
+    {% for country, origin in countries_list %}
+      <li>
+        <strong><a href="/country/{{ country.code }}">{{ country.name }}</a>:</strong> {{ origin.description }}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}
