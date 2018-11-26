@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from random import randint
 from django.shortcuts import redirect
 
-from .models import Country, Food, Origin
+from .models import Country, Food, Origin, FoodSuggestion
 from .forms import FoodSuggestionForm
 
 def index(request):
@@ -86,8 +86,17 @@ def food_suggestion(request):
     form = FoodSuggestionForm(request.POST)
 
     if form.is_valid():
-      form = FoodSuggestionForm()
-      context = {'form': form, 'success': True}
+      pristine_form = FoodSuggestionForm()
+      suggestion = FoodSuggestion(
+        title=form.data['title'],
+        original_name=form.data['original_name'],
+        description=form.data['description'],
+        email=form.data['email'],
+        image_url=form.data['image_url'],
+        countries=form.data['countries']
+      )
+      suggestion.save()
+      context = {'form': pristine_form, 'success': True}
       return render(request, 'food/suggestion.html', context=context)
     else:
       context = {'form': form}
