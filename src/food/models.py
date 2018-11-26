@@ -42,7 +42,7 @@ class FoodSuggestion(models.Model):
   title = models.CharField(max_length=200)
   original_name = models.CharField(max_length=200)
   description = models.TextField()
-  email = models.EmailField(max_length=254)
+  email = models.EmailField(max_length=254, blank=True)
   image_url = models.CharField(max_length=300, validators=[URLValidator()], blank=True)
   countries  = models.CharField(max_length=200)
 
