@@ -95,3 +95,46 @@ p {
 .lf-food-countries {
   margin-top: 30px;
 }
+
+.lf-form {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.lf-form label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.lf-form input, .lf-form textarea {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.1);
+  padding-left: .75rem;
+  padding-right: .75rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  line-height: 1.25;
+  border-radius: .25rem;
+  border: 1px solid #dae1e7;
+  min-width: 400px;
+}
+
+.lf-form .helptext {
+  font-size: 85%;
+  opacity: 0.6;
+}
+
+.lf-thanks {
+  max-width: 800px;
+  margin: 30px auto;
+  color: #2779bd;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  border-color: #3490dc;
+  background-color: #eff8ff;
+  border-style: solid;
+}

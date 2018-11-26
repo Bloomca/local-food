@@ -37,3 +37,14 @@ class Origin(models.Model):
 
   def __str__(self):
     return str(self.food) + ' in ' + str(self.country)
+
+class FoodSuggestion(models.Model):
+  title = models.CharField(max_length=200)
+  original_name = models.CharField(max_length=200)
+  description = models.TextField()
+  email = models.EmailField(max_length=254)
+  image_url = models.CharField(max_length=300, validators=[URLValidator()], blank=True)
+  countries  = models.CharField(max_length=200)
+
+  def __str__(self):
+    return self.title + '/' + self.original_name

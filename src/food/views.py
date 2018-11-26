@@ -6,6 +6,7 @@ from random import randint
 from django.shortcuts import redirect
 
 from .models import Country, Food, Origin
+from .forms import FoodSuggestionForm
 
 def index(request):
   countries = Country.objects.all()[:4]
@@ -79,6 +80,22 @@ def categories(request):
   beverages = Food.objects.filter(beverage=True).all()
   context = {'vegeterian': vegeterian, 'vegan': vegan, 'beverages': beverages}
   return render(request, 'food/categories.html', context=context)
+
+def food_suggestion(request):
+  if request.method == "POST":
+    form = FoodSuggestionForm(request.POST)
+
+    if form.is_valid():
+      form = FoodSuggestionForm()
+      context = {'form': form, 'success': True}
+      return render(request, 'food/suggestion.html', context=context)
+    else:
+      context = {'form': form}
+      return render(request, 'food/suggestion.html', context=context)
+
+  form = FoodSuggestionForm()
+  context = {'form': form}
+  return render(request, 'food/suggestion.html', context=context)
 
 
 

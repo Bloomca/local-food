@@ -1,0 +1,30 @@
+{% extends 'food/base.html' %}
+
+{% block content %}
+{% if success == True %}
+<div class="lf-thanks">
+  <b>Thanks for your contribution!</b> We will review your submission shortly, and if you specified your email address, we will contact you regarding it.
+</div>
+{% endif %}
+
+
+<h1 class="text-center mt-8 mb-8">
+  Submit your food
+</h1>
+{% if form.subject.errors %}
+  <ol>
+    {% for error in form.subject.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+  </ol>
+{% endif %}
+<form method="POST" action="/suggestions/food" class="lf-form">
+    {% csrf_token %}
+    {{ form }}
+    <div class="mt-8">
+      <button type="submit" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          Submit
+        </button>
+    </div>
+</form>
+{% endblock %}
